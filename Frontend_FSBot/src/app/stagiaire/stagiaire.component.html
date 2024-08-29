@@ -1,0 +1,87 @@
+<!-- Formulaire de création de stagiaire -->
+<div class="container-fluid mt-4">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Créer un Stagiaire</h4>
+          <form (ngSubmit)="addStagiaire()" #stagiaireForm="ngForm" enctype="multipart/form-data" class="form-horizontal">
+            <div class="form-group">
+              <label for="prenom">Prénom</label>
+              <input type="text" id="prenom" class="form-control" [(ngModel)]="newStagiaire.prenom" name="prenom" required #prenom="ngModel">
+              <div *ngIf="prenom.touched && prenom.invalid" class="text-danger">
+                Le prénom est obligatoire.
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="nom">Nom</label>
+              <input type="text" id="nom" class="form-control" [(ngModel)]="newStagiaire.nom" name="nom" required #nom="ngModel">
+              <div *ngIf="nom.touched && nom.invalid" class="text-danger">
+                Le nom est obligatoire.
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" class="form-control" [(ngModel)]="newStagiaire.email" name="email" required #email="ngModel">
+              <div *ngIf="email.touched && email.invalid" class="text-danger">
+                Un email valide est obligatoire.
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="sujet_pfe">Sujet PFE</label>
+              <input type="text" id="sujet_pfe" class="form-control" [(ngModel)]="newStagiaire.sujet_pfe" name="sujet_pfe" required #sujetPfe="ngModel">
+              <div *ngIf="sujetPfe.touched && sujetPfe.invalid" class="text-danger">
+                Le sujet du PFE est obligatoire.
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="stagiaireForm.invalid">Ajouter</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Liste des stagiaires avec barre de scroll améliorée -->
+<div class="row mt-4">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-header">Liste des Stagiaires</div>
+      <div class="card-body" style="overflow-x:auto;">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Prénom</th>
+              <th>Nom</th>
+              <th>Email</th>
+              <th>Sujet PFE</th>
+              <th>État d'Avancement</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let stagiaire of stagiaires; trackBy: trackByStagiaireId">
+              <td>{{ stagiaire.prenom }}</td>
+              <td>{{ stagiaire.nom }}</td>
+              <td>{{ stagiaire.email }}</td>
+              <td>{{ stagiaire.sujet_pfe }}</td>
+              <td>
+                <input type="range" class="form-control-range" min="0" max="100" step="25"
+                       [(ngModel)]="stagiaire.etat_avancement" (change)="prepareUpdate(stagiaire)">
+                <span>{{ stagiaire.etat_avancement }}%</span>
+              </td>
+              <td>
+                <button class="btn btn-success" (click)="updateEtatAvancement(stagiaire)">
+                  <i class="mdi mdi-tooltip-edit"></i>
+                </button>
+                <button class="btn btn-danger" (click)="deleteStagiaire(stagiaire.id)">
+                  <i class="mdi mdi-delete"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

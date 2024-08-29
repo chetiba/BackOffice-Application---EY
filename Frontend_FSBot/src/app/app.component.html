@@ -1,0 +1,25 @@
+<!-- Root container holding the entire Angular app -->
+<div class="container-scroller">
+    <!-- Sidebar, settings, navbar, and footer components -->
+    <app-sidebar *ngIf="showSidebar"></app-sidebar>
+    <div class="container-fluid page-body-wrapper">
+        <app-settings-panel *ngIf="showSettings"></app-settings-panel>
+        <app-navbar *ngIf="showNavbar"></app-navbar>
+        <div class="main-panel" [ngClass]="{ 'main-panel-only' : !showSidebar }">
+            <div class="content-wrapper">
+                <app-spinner *ngIf="isLoading"></app-spinner>
+                <div contentAnimate *ngIf="!isLoading" class="h-100">
+                    <router-outlet></router-outlet>
+                </div>
+            </div>
+            <app-footer *ngIf="showFooter"></app-footer>
+        </div>
+    </div>
+    <!-- Chatbot activation icon -->
+<button id="chatbotButton" (click)="toggleChatbotPopup()" class="icon-button">
+  <i class="fas fa-robot"></i>
+</button>
+<div *ngIf="displayChatbot" class="chatbot-popup">
+  <app-chatbot (closeChatbot)="closeChatbot()"></app-chatbot>
+</div>
+</div>

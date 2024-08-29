@@ -1,0 +1,40 @@
+2024-07-10 15:48:35,017 - INFO - C:\Users\BH935VF\IAProjects\Django\Backend_FSBot\collaborateurs\views.py changed, reloading.
+2024-07-10 15:48:43,352 - DEBUG - Starting new HTTPS connection (1): www.ilboursa.com:443
+2024-07-10 15:48:43,911 - DEBUG - https://www.ilboursa.com:443 "GET /marches/actualites_bourse_tunis HTTP/11" 200 None
+2024-07-10 15:48:44,036 - WARNING - Table with id 'tebQuotes' not found.
+2024-07-10 15:48:44,036 - INFO - Scraped Data: []
+2024-07-10 15:49:40,484 - INFO - C:\Users\BH935VF\IAProjects\Django\Backend_FSBot\collaborateurs\views.py changed, reloading.
+2024-07-10 15:49:46,226 - DEBUG - Starting new HTTPS connection (1): www.ilboursa.com:443
+2024-07-10 15:49:46,703 - DEBUG - https://www.ilboursa.com:443 "GET /marches/actualites_bourse_tunis HTTP/11" 200 None
+2024-07-10 15:50:42,407 - INFO - C:\Users\BH935VF\IAProjects\Django\Backend_FSBot\collaborateurs\urls.py changed, reloading.
+2024-07-10 15:51:48,815 - INFO - C:\Users\BH935VF\IAProjects\Django\Backend_FSBot\collaborateurs\views.py changed, reloading.
+2024-07-10 15:51:54,687 - DEBUG - Starting new HTTPS connection (1): www.ilboursa.com:443
+2024-07-10 15:51:55,152 - DEBUG - https://www.ilboursa.com:443 "GET /marches/actualites_bourse_tunis HTTP/11" 200 None
+2024-07-10 15:51:55,205 - DEBUG - HTML Content: <!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <link href="/css2/v94.min.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/i/favicon32.png">
+    <meta property="fb:pages" content="296266907136787" />
+    
+    <title>Actualités économiques et financières en Tunisie</title>
+    <meta name="description" content="Economie, finance, bourse... toutes les actualités de la bourse et de l'économie tunisienne" />
+    <style>
+        #tabQuotes td:nth-of-type(1) {
+            width: 125px
+        }
+    </style>
+
+    <script>
+        var googletag = googletag || {};
+        googletag.cmd = googletag.cmd || [];
+        (function () {
+            var gads = document.createElement('script');
+            gads.async = true;
+            gads.type = 'text/javascript';
+            var useSSL = 'https:' == document.location.protocol;
+            gads.src = (useSSL ? 'https:' : 'http:') +
+                '//ww
+2024-07-10 15:51:55,303 - WARNING - Table with id 'tebQuotes' not found.
+2024-07-10 15:53:32,793 - INFO - C:\Users\BH935VF\IAProjects\Django\Backend_FSBot\collaborateurs\views.py changed, reloading.

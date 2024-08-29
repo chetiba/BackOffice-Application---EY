@@ -1,0 +1,210 @@
+@import '../../styles.scss';
+
+// Carte avec gradient
+.card {
+  &.corona-gradient-card {
+    background-image: linear-gradient(to left, #d41459, #911a6c);
+    border-radius: 6px;
+
+    .gradient-corona-img {
+      height: 85px;
+      @media (max-width: 576px) {
+        height: auto;
+        min-height: 50px;
+        max-height: 85px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .banner-text {
+        font-size: 0.75rem;
+      }
+    }
+  }
+}
+
+// Bouton de démarrage
+.btn {
+  &.get-started-btn {
+    font-size: 0.75rem;
+    border: 1px solid rgba(white, 0.3);
+    font-weight: $font-weight-medium;
+    padding: 0.9375rem 1.0625rem;
+
+    &:hover,
+    &:focus {
+      color: rgba(204, 204, 204, 0.38);
+      background-color: #ffffff;
+      border-color: #ffffff;
+    }
+
+    @media (max-width: 576px) {
+      font-size: 0.6rem;
+      padding: 0.4375rem 0.6625rem;
+    }
+  }
+}
+
+// Icones avec couleurs du thème
+@each $color, $value in $theme-colors {
+  .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &.icon-box-#{$color} {
+      width: 40px;
+      height: 37px;
+      background: rgba($value, 0.11);
+      border-radius: 7px;
+      color: $value;
+    }
+
+    .icon-item {
+      font-size: 20px;
+      display: flex;
+    }
+  }
+}
+
+// Styles pour le tableau
+.table-responsive {
+  display: flex;
+  justify-content: center; // Centrer le tableau dans la vue
+}
+
+.table {
+  width: 100%; // Utilise toute la largeur disponible
+  table-layout: fixed; // Contrôle strict des largeurs des colonnes
+  color: white; // Texte en blanc pour tout le tableau
+  text-align: center; // Centre le texte dans toutes les cellules
+
+  th, td {
+    vertical-align: middle;
+    white-space: nowrap; // Empêche le retour à la ligne
+  }
+
+  th.nom-collaborateur,
+  td.nom-collaborateur {
+    width: 20%;
+  }
+
+  th.photo,
+  td.photo {
+    width: 10%;
+  }
+
+  th.email,
+  td.email {
+    width: 20%;
+  }
+
+  th.grade,
+  td.grade {
+    width: 10%;
+  }
+
+  th.institution,
+  td.institution,
+  th.departement,
+  td.departement {
+    width: 15%;
+  }
+
+  th.connecte,
+  td.connecte {
+    width: 10%;
+  }
+}
+
+// Réactivité pour les petits écrans
+@media (max-width: 768px) {
+  .table th, .table td {
+    width: auto; // Permet aux colonnes de s'ajuster automatiquement
+  }
+}
+
+
+// Styles pour les images rondes
+.img-xs.rounded-circle {
+  display: block;
+  margin: 0 auto; // Centrer les images horizontalement dans leurs cellules
+}
+
+// Carte avec des dimensions adaptatives
+mgl-map {
+  height: 100%;
+  width: 100%;
+}
+.status-circle {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.green-circle {
+  background-color: green;
+}
+
+.red-circle {
+  background-color: red;
+}
+
+.custom-modal .modal-dialog {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* Ensure the modal takes full height */
+  margin: 0;
+}
+.form-control {
+  color: white; /* Change the text color to white */
+}
+
+.btn-no-border {
+  background: none;
+  border: none;
+  color: white;
+  padding: 0;
+  font-size: inherit;
+  cursor: pointer;
+}
+
+.btn-no-border:hover {
+  color: #ccc; /* Optional: change the color on hover for better user experience */
+}
+button i.mdi-tooltip-edit {
+  color: #007bff; /* Color for edit icon */
+  font-size: 1.25em; /* Adjust the size as needed */
+  cursor: pointer;
+}
+
+button i.mdi-delete-forever {
+  color: red; /* Color for delete icon */
+  font-size: 1.25em; /* Adjust the size as needed */
+  cursor: pointer;
+}
+
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+button:hover i.mdi-tooltip-edit {
+  color: #0056b3; /* Optional: change color on hover for edit icon */
+}
+
+button:hover i.mdi-delete-forever {
+  color: darkred; /* Optional: change color on hover for delete icon */
+}
+.modal-title.text-center {
+  text-align: center;
+  width: 100%;
+  display: block;
+}
+.button-spacing {
+  margin-right: 10px;
+}

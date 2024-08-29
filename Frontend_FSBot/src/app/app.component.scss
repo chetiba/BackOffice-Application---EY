@@ -1,0 +1,31 @@
+.icon-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1050;
+  background-color: #ffe600; // Fond jaune
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  i {
+    font-size: 24px;
+    color: white;
+  }
+}
+
+.chatbot-popup {
+  position: fixed;
+  bottom: 60px;
+  right: 20px;
+  width: 400px;
+  height: 600px;
+  border: 1px solid #ccc;
+  z-index: 1050;
+  background: white;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}

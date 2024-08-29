@@ -1,0 +1,34 @@
+version: "3.1"
+stories:
+- story: happy path
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: mood_great
+    - action: utter_mood_great
+
+- story: sad path 1
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: mood_unhappy
+    - action: utter_mood_unhappy
+    - action: utter_did_that_help
+    - intent: affirm
+    - action: utter_affirm
+
+- story: goodbye path
+  steps:
+    - intent: goodbye
+    - action: utter_goodbye
+
+- story: search CV by name directly
+  steps:
+    - intent: search_CV_Name
+    - action: action_search_cv_by_name
+
+- story: search CV by competences directly
+  steps:
+    - intent: search_CV_Competences
+    - action: action_search_cv_by_name
+

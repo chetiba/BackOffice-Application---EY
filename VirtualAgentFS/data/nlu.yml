@@ -1,0 +1,824 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+    - Salut
+    - Bonjour
+    - Coucou
+    - Hello
+    - Salutations
+    - Bonsoir
+    - Bien le bonjour
+    - Bonne journée
+    - Bon matin
+    - Bonne soirée
+    - salut tout le monde
+    - Salut à tous
+    - Allo
+    - slt
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good bye
+    - see you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+    - Au revoir
+    - Salut
+    - À bientôt
+    - À tout à l'heure
+    - Adieu
+    - Ciao
+    - À demain
+    - À plus tard
+    - Bonne soirée
+    - Bonne nuit
+    - Bye
+    - Bye bye
+    - Prends soin de toi
+    - À la prochaine
+    - À plus
+    - Bon après-midi
+    - Bonne continuation
+    - À tout de suite
+    - Je m'en vais
+    - Je vous laisse
+    - On se revoit bientôt
+    - On se parle plus tard
+    - À la revoyure
+    - Portez-vous bien
+    - Soyez prudents
+    - Restez en sécurité
+    - Tchao
+    - On se dit au revoir
+    - Je te dis à plus
+    - On se capte plus tard
+    - by
+    - A+
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+    - Oui
+    - Tout à fait
+    - Absolument
+    - Bien sûr
+    - Exactement
+    - C'est ça
+    - Assurément
+    - Bien entendu
+    - Évidemment
+    - En effet
+    - Certainement
+    - Sans aucun doute
+    - Assurément
+    - Tout à fait vrai
+    - En toute certitude
+    - Indubitablement
+    - Oui, bien sûr
+    - Oui, exactement
+    - Oui, sans aucun doute
+    - Tout à fait d'accord
+    - Absolument certain
+    - Oui, tout à fait
+    - Oui, c'est exact
+    - Oui, c'est bien ça
+    - Bien sûr que oui
+    - Exactement comme ça
+    - Tout à fait correct
+    - En toute vérité
+    - Oui, en effet
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+    - Non
+    - Pas du tout
+    - Pas vraiment
+    - Absolument pas
+    - Certainement pas
+    - En aucun cas
+    - Négatif
+    - Pas exactement
+    - Pas vraiment
+    - Pas du tout d'accord
+    - Non, ce n'est pas ça
+    - Non, ce n'est pas vrai
+    - Non, absolument pas
+    - Non, je ne suis pas d'accord
+    - Non, je ne pense pas
+    - Non, ce n'est pas correct
+    - Non, ce n'est pas la réalité
+    - Non, ça ne me convient pas
+    - Non, ça ne fonctionne pas pour moi
+    - Non, je ne suis pas sûr
+    - Non, je ne veux pas
+    - Non, je ne suis pas intéressé
+    - Non, ce n'est pas la bonne réponse
+    - Non, ce n'est pas ce que je veux
+    - Non, je ne crois pas
+    - Non, je ne suis pas sûr de ça
+    - Non, je ne pense pas que ce soit correct
+    - Non, je ne suis pas d'accord avec ça
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+    - Je me sens super bien
+    - Je suis de très bonne humeur
+    - Je suis au top
+    - Je suis dans une humeur fantastique
+    - Je me sens incroyable
+    - Je suis tellement heureux
+    - Je suis dans un état d'esprit formidable
+    - Je suis super content
+    - Je me sens génial
+    - Je suis très content
+    - Je me sens au sommet du monde
+    - Je suis dans une humeur fabuleuse
+    - Je suis dans un état d'euphorie
+    - Je suis tellement excité
+    - Je me sens vraiment bien
+    - Je suis dans un état d'esprit positif
+    - Je me sens super
+    - Je suis dans une humeur exaltante
+    - Je suis plein d'énergie
+    - Je suis dans un état d'esprit joyeux
+    - Je suis dans un état d'esprit radieux
+    - Je me sens formidable
+    - Je suis de très bonne humeur
+    - Je suis dans un état d'esprit génial
+    - Je suis dans un état d'esprit fantastique
+    - Je suis super motivé
+    - Je suis plein de joie
+    - Je suis dans un état d'euphorie
+    - Je suis dans un état d'esprit radieux
+    - Je suis dans un état d'esprit optimiste
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremely sad
+    - so sad
+    - Je me sens très triste
+    - Je suis dans une mauvaise humeur
+    - Je ne me sens pas bien
+    - Je suis déprimé
+    - Je suis démoralisé
+    - Je suis dans un état d'esprit sombre
+    - Je me sens vraiment mal
+    - Je suis très déçu
+    - Je suis mécontent
+    - Je suis dans une humeur maussade
+    - Je suis de mauvaise humeur
+    - Je me sens découragé
+    - Je suis dans un état d'esprit négatif
+    - Je me sens malheureux
+    - Je suis très contrarié
+    - Je suis dans une humeur morose
+    - Je suis dans un état de tristesse
+    - Je suis bouleversé
+    - Je suis dans un état de chagrin
+    - Je suis dans un état de désespoir
+    - Je me sens déprimé
+    - Je suis dans un état de défaite
+    - Je me sens abattu
+    - Je suis dans un état d'abattement
+    - Je suis dans un état de désespoir
+    - Je me sens vraiment triste
+    - Je suis dans un état de mélancolie
+    - Je suis dans un état de désarroi
+    - Je suis dans un état de souffrance
+    - Je suis dans un état de détresse
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+    - Es-tu un robot ?
+    - Es-tu une intelligence artificielle ?
+    - Est-ce que je parle à un bot ?
+    - Es-tu un programme informatique ?
+    - Es-tu une machine ?
+    - Es-tu un système automatisé ?
+    - Est-ce que tu es une IA ?
+    - Es-tu un chatbot ?
+    - Es-tu un bot ? 
+    - Es-tu une entité virtuelle ?
+    - Est-ce que tu es réel ?
+    - Es-tu un logiciel ?
+    - Est-ce que tu es humain ?
+    - Es-tu une personne réelle ?
+    - Es-tu un programme ?
+    - Es-tu un être vivant ?
+    - Es-tu un algorithme ?
+    - Es-tu une création numérique ?
+    - Es-tu une intelligence artificielle avancée ?
+    - Es-tu un ordinateur ?
+
+- intent: search_CV_Name
+  examples: |
+    - Peux-tu me montrer le CV de [Ahmed Ben Ali](Nom) ?
+    - Je cherche le CV de quelqu'un appelé [Firas Trabelsi](Nom).
+    - Est-ce que tu as un CV qui correspond à [Oussema Ayari](Nom) ?
+    - Affiche le CV de [Youssef Bouazizi](Nom).
+    - Je voudrais voir le CV de la personne nommée [Karim Hadded](Nom).
+    - Existe-t-il un CV pour [Nizar Saidi](Nom) ?
+    - Peux-tu trouver le CV pour le nom complet [Sami Chaouch](Nom) ?
+    - Je cherche spécifiquement le CV de [Anis Jebali](Nom).
+    - Peux-tu me fournir le CV de [Rami Mbarek](Nom) ?
+    - [Mehdi Khelifi](Nom) ?
+    - cv [Amine Gharbi](Nom) ?
+    - Donne-moi cv [Hichem Baccouche](Nom) ?
+    - Je veux [Khaled Ben Yedder](Nom)'s cv.
+    - Donne [Chaker Ben Salah](Nom).
+    - Je veux le cv de [Tarek Dali](Nom).
+    - Trouver CV [Marouane Mansouri](Nom).
+    - [Aymen Bousnina](Nom) CV.
+    - Récupère cv [Lotfi Mabrouk](Nom).
+    - Peux-tu me montrer le CV de [Rached Zghal](Nom) ?
+    - Je cherche le CV de quelqu'un appelé [Nabil Ferchichi](Nom).
+    - Est-ce que tu as un CV qui correspond à [Bassem Hammami](Nom) ?
+    - Affiche le CV de [Raouf Kharrat](Nom).
+    - Je voudrais voir le CV de la personne nommée [Saif Fekih](Nom).
+    - Existe-t-il un CV pour [Habib Maaloul](Nom) ?
+    - Peux-tu trouver le CV pour le nom complet [Imed Gueddiche](Nom) ?
+    - Je cherche spécifiquement le CV de [Jalel Jaziri](Nom).
+    - Peux-tu me fournir le CV de [Hamza Toumi](Nom) ?
+    - [Walid Khemiri](Nom) ?
+    - cv [Mourad Mahjoub](Nom) ?
+    - Donne-moi cv [Wassim Dridi](Nom) ?
+    - Je veux [Kais Sahli](Nom)'s cv.
+    - Donne [Mounir Mestiri](Nom).
+    - Je veux le cv de [Ali Bettaieb](Nom).
+    - Trouver CV [Firas Zayani](Nom).
+    - [Oussema Ayari](Nom) CV.
+    - Récupère cv [Ahmed Ben Ali](Nom).
+    - Peux-tu me montrer le CV de [Aziz Abdellatif](Nom) ?
+    - Je cherche le CV de quelqu'un appelé [Hedhli Ines](Nom).
+    - Est-ce que tu as un CV qui correspond à [Hela Hbaieb](Nom) ?
+    - Affiche le CV de [Oumaima Lamti](Nom).
+    - Je voudrais voir le CV de la personne nommée [Siwar Ben Khelifa](Nom).
+    - Existe-t-il un CV pour [Gabsi Nourhene](Nom) ?
+    - Peux-tu trouver le CV pour le nom complet [Wazzeni Oussema](Nom) ?
+    - Je cherche spécifiquement le CV de [Emna Ben Chaabene](Nom).
+    - Peux-tu me fournir le CV de [Firas el Mehdi](Nom) ?
+    - [Mouna Kchaou](Nom) ?
+    - cv [Mediouni Hayfa](Nom) ?
+    - Donne-moi cv [Nadia Touhami](Nom) ?
+    - Je veux [Ridha Meftah](Nom)'s cv.
+    - Donne [Louati Jihed](Nom).
+    - Je veux le cv de [Guizani Youssef](Nom).
+    - Trouver CV [Aya Engazou](Nom).
+    - [Ayoub Hadhri](Nom) CV.
+    - Récupère cv [Mustapha Rebai](Nom).
+    - Peux-tu me montrer le CV de [Nabil Gharbi](Nom) ?
+    - Peux-tu me montrer le CV de [Hamdi Triki](Nom) ?
+    - Je cherche le CV de quelqu'un appelé [Saber Khemiri](Nom).
+    - Est-ce que tu as un CV qui correspond à [Lotfi Ben Slimane](Nom) ?
+    - Affiche le CV de [Mahdi Ben Amor](Nom).
+    - Je voudrais voir le CV de la personne nommée [Zied Ben Romdhane](Nom).
+    - Existe-t-il un CV pour [Tarek Bouaziz](Nom) ?
+    - Peux-tu trouver le CV pour le nom complet [Chokri Mbarek](Nom) ?
+    - Je cherche spécifiquement le CV de [Farid Ben Said](Nom).
+    - Peux-tu me fournir le CV de [Moez Ben Abdallah](Nom) ?
+    - [Amina Ben Slimane](Nom) ?
+    - cv [Chayma Triki](Nom) ?
+    - Donne-moi cv [Asma Khemiri](Nom) ?
+    - Je veux [Khawla Ben Amor](Nom)'s cv.
+    - Donne [Rabeb Ben Romdhane](Nom).
+    - Je veux le cv de [Imen Bouaziz](Nom).
+    - Trouver CV [Ons Mbarek](Nom).
+    - [Rym Ben Said](Nom) CV.
+    - Récupère cv [Wided Ben Abdallah](Nom).
+    - Peux-tu me montrer le CV de [Soumaya Ben Slimane](Nom) ?
+    - [Ahmed Amine Chtiba](Nom)
+    - Peux-tu me montrer les CVs de [Aziz Abdellatif](Nom) et [Hedhli Ines](Nom) ?
+    - Je cherche les CVs de [Hela Hbaieb](Nom) et de [Oumaima Lamti](Nom).
+    - Est-ce que tu as les CVs qui correspondent à [Siwar Ben Khelifa](Nom) et [Gabsi Nourhene](Nom) ?
+    - Affiche les CVs de [Wazzeni Oussema](Nom) et [Emna Ben Chaabene](Nom).
+    - Je voudrais voir les CVs des personnes nommées [Firas El Mehdi](Nom) et [Mouna Kchaou](Nom).
+    - Montre-moi les CVs de [Mediouni Hayfa](Nom) et [Ridha Meftah](Nom).
+    - Pourriez-vous me fournir les CVs de [Nadia Touhami](Nom) et [Jihed Louati](Nom) ?
+    - J'aimerais accéder aux CVs de [Youssef Guizani](Nom) et [Ayoub Hadhri](Nom).
+    - Est-il possible d'obtenir les CVs de [Mustapha Rebai](Nom) et de [Aya Engazou](Nom) ?
+    - Je dois vérifier les dossiers de [Yassine Mokhtar](Nom) et de [Aziz Abdellatif](Nom).
+    - Peux-tu afficher les informations sur [Hedhli Ines](Nom) et [Hela Hbaieb](Nom) ?
+    - Peut-on examiner les CVs de [Oumaima Lamti](Nom) et [Siwar Ben Khelifa](Nom) ?
+    - J'ai besoin des CVs de [Gabsi Nourhene](Nom) et de [Wazzeni Oussema](Nom).
+    - Peux-tu me fournir les documents de [Emna Ben Chaabene](Nom) et [Firas El Mehdi](Nom) ?
+    - Je souhaite voir les CVs de [Mouna Kchaou](Nom) et de [Mediouni Hayfa](Nom).
+    - Recherche les CVs de [Ridha Meftah](Nom) et [Nadia Touhami](Nom).
+    - Pourriez-vous récupérer les CVs de [Jihed Louati](Nom) et de [Youssef Guizani](Nom) ?
+    - Je suis curieux de voir les parcours de [Ayoub Hadhri](Nom) et de [Mustapha Rebai](Nom).
+    - Trouver les CVs pour [Aya Engazou](Nom) et [Yassine Mokhtar](Nom).
+    - [Firas El Mehdi](Nom) [Yassine Mokhtar](Nom)
+    - Peux-tu me montrer les CVs de [Aziz Abdellatif](Nom), [Hedhli Ines](Nom) et [Hela Hbaieb](Nom) ?
+    - Je cherche les CVs de [Oumaima Lamti](Nom), [Siwar Ben Khelifa](Nom) et [Gabsi Nourhene](Nom).
+    - Est-ce que tu as les CVs qui correspondent à [Wazzeni Oussema](Nom), [Emna Ben Chaabene](Nom) et [Firas El Mehdi](Nom) ?
+    - Affiche les CVs de [Mouna Kchaou](Nom), [Mediouni Hayfa](Nom) et [Ridha Meftah](Nom).
+    - Je voudrais voir les CVs des personnes nommées [Nadia Touhami](Nom), [Jihed Louati](Nom) et [Youssef Guizani](Nom).
+    - Montre-moi les CVs de [Ayoub Hadhri](Nom), [Mustapha Rebai](Nom) et [Aya Engazou](Nom).
+    - Pourriez-vous me fournir les CVs de [Yassine Mokhtar](Nom), [Aziz Abdellatif](Nom) et [Hedhli Ines](Nom) ?
+    - J'aimerais accéder aux CVs de [Hela Hbaieb](Nom), [Oumaima Lamti](Nom), et [Siwar Ben Khelifa](Nom).
+    - Est-il possible d'obtenir les CVs de [Gabsi Nourhene](Nom), [Wazzeni Oussema](Nom) et [Emna Ben Chaabene](Nom) ?
+    - Je dois vérifier les dossiers de [Firas El Mehdi](Nom), [Mouna Kchaou](Nom) et [Mediouni Hayfa](Nom).
+    - Peux-tu afficher les informations sur [Ridha Meftah](Nom), [Nadia Touhami](Nom), et [Jihed Louati](Nom) ?
+    - Peut-on examiner les CVs de [Youssef Guizani](Nom), [Ayoub Hadhri](Nom), et [Mustapha Rebai](Nom) ?
+    - J'ai besoin des CVs de [Aya Engazou](Nom), [Yassine Mokhtar](Nom), et [Aziz Abdellatif](Nom).
+    - Peux-tu me fournir les documents de [Hedhli Ines](Nom), [Hela Hbaieb](Nom), et [Oumaima Lamti](Nom) ?
+    - Je souhaite voir les CVs de [Siwar Ben Khelifa](Nom), [Gabsi Nourhene](Nom), et [Wazzeni Oussema](Nom).
+    - Recherche les CVs de [Emna Ben Chaabene](Nom), [Firas El Mehdi](Nom), et [Mouna Kchaou](Nom).
+    - Pourriez-vous récupérer les CVs de [Mediouni Hayfa](Nom), [Ridha Meftah](Nom), et [Nadia Touhami](Nom) ?
+    - [Firas El Mehdi](Nom) [Yassine Mokhtar](Nom) [Emna Ben Chaabene](Nom) [Gabsi Nourhene](Nom)
+
+
+
+- intent: search_CV_Competences
+  examples: |
+    - Peux-tu me montrer les CV avec des compétences en [Project Management](competences) ?
+    - Je cherche des CV de personnes ayant des compétences en [Data Analysis](competences).
+    - Est-ce que tu as des CV correspondant à la [gestion des risques en assurance](competences) ?
+    - Affiche les CV des personnes ayant des compétences en [analyse des données en assurance vie](competences).
+    - Je voudrais voir les CV des personnes spécialisées en [stratégie d'entreprise dans le secteur de l'assurance](competences).
+    - Existe-t-il des CV pour des personnes avec des compétences en [transformation digitale des processus d'assurance](competences) ?
+    - Peux-tu trouver les CV pour des personnes ayant élaboré un [plan stratégique et opérationnel](competences) ?
+    - Je cherche des CV spécifiquement pour [l'optimisation des processus](competences).
+    - Peux-tu me fournir les CV des personnes avec des compétences en [finance durable](competences) ?
+    - Affiche les CV pour des personnes ayant élaboré un [plan stratégique](competences).
+    - Je veux voir les CV des personnes spécialisées en [optimisation des processus](competences).
+    - Je voudrais les CV des personnes ayant des compétences en [alignement stratégique](competences).
+    - Peux-tu trouver les CV pour des compétences en [audit organisationnel](competences) ?
+    - Montre-moi les CV des personnes spécialisées en [transformation digitale et business model](competences).
+    - Est-ce que tu as des CV pour des compétences en [paiement digital et chaîne de valeur](competences) ?
+    - Affiche les CV des personnes ayant fait des [études de marché et l'élaboration de plan de développement stratégique](competences).
+    - Je cherche des CV de personnes ayant fait un [diagnostic de l'organisation et reengineering des processus](competences).
+    - Peux-tu me montrer les CV pour des compétences en [risk management](competences) ?
+    - Est-ce que tu as des CV pour des personnes spécialisées en [finance durable / bilan carbone](competences) ?
+    - Affiche les CV pour des compétences en [analyse financière et stratégique](competences).
+    - Je voudrais voir les CV pour des personnes ayant fait des [études de marché et de l'intelligence économique](competences).
+    - Peux-tu trouver les CV pour des compétences en [veille et intelligence économique](competences) ?
+    - Montre-moi les CV des personnes spécialisées en [diagnostic organisationnel](competences).
+    - Je cherche des CV de personnes ayant des compétences en [planification stratégique](competences).
+    - Affiche les CV des personnes spécialisées en [modélisation macroéconomique](competences).
+    - Peux-tu me montrer les CV pour des compétences en [banking processes design](competences) ?
+    - Je cherche des CV de personnes ayant des compétences en [banking processes reengineering](competences).
+    - Est-ce que tu as des CV pour des compétences en [new technologies implementation in banking sector](competences) ?
+    - Peux-tu me fournir les CV des personnes ayant des compétences en [opérations et paiement digitaux](competences) ?
+    - Affiche les CV pour des compétences en [transformation digitale des services gouvernementaux](competences).
+    - Je voudrais voir les CV pour des compétences en [optimisation et reengineering des processus bancaires](competences).
+    - Peux-tu trouver les CV pour des compétences en [intelligence économique](competences) ?
+    - Montre-moi les CV pour des personnes ayant des compétences en [architecture de paiements](competences).
+    - Est-ce que tu as des CV pour des personnes spécialisées en [inclusion financière](competences) ?
+    - Affiche les CV des personnes ayant travaillé avec des [bailleurs de fonds et institutions publiques](competences).
+    - [Project Management](competences)
+    - [Data Analysis](competences)
+    - [gestion des risques en assurance](competences)
+    - [analyse des données en assurance vie](competences)
+    - [stratégie d'entreprise dans le secteur de l'assurance](competences)
+    - [transformation digitale des processus d'assurance](competences)
+    - [élaboration de plan stratégique et opérationnel](competences)
+    - [optimisation des processus](competences)
+    - [finance durable](competences)
+    - [élaboration de plan stratégique](competences)
+    - [optimisation des processus](competences)
+    - [élaboration de plan stratégique et opérationnel](competences)
+    - [alignement stratégique](competences)
+    - [audit organisationnel](competences)
+    - [optimisation des processus](competences)
+    - [transformation digitale et business model](competences)
+    - [paiement digital et chaîne de valeur](competences)
+    - [études de marché et élaboration de plan de développement stratégique](competences)
+    - [diagnostic de l'organisation et reengineering des processus](competences)
+    - [risk management](competences)
+    - [finance durable / bilan carbone](competences)
+    - [analyse financière et stratégique](competences)
+    - [études de marché et intelligence économique](competences)
+    - [veille et intelligence économique](competences)
+    - [diagnostic organisationnel](competences)
+    - [planification stratégique](competences)
+    - [modélisation macroéconomique](competences)
+    - [banking processes design](competences)
+    - [banking processes reengineering](competences)
+    - [new technologies implementation in banking sector](competences)
+    - [opérations et paiement digitaux](competences)
+    - [transformation digitale des services gouvernementaux](competences)
+    - [optimisation et reengineering des processus bancaires](competences)
+    - [intelligence économique](competences)
+    - [architecture de paiements](competences)
+    - [inclusion financière](competences)
+    - [bailleurs de fonds et institutions publiques](competences)
+
+- intent: search_CV_Institution
+  examples: |
+    - Peux-tu me montrer les CV des collaborateurs issus de la [ISG Tunis](Institution) ?
+    - Je cherche les CV de personnes diplômées de [ESPRIT](Institution).
+    - Est-ce que tu as des CV qui mettent en avant les études réalisées à [ESB](Institution) ?
+    - Affiche les CV mentionnant [Paris Dauphine](Institution), s'il te plaît.
+    - Je voudrais voir les CV des personnes ayant étudié à [Dauphine](Institution).
+    - Existe-t-il des CV indiquant des études à [MSB](Institution) ?
+    - Peux-tu trouver les CV soulignant les diplômes obtenus à [MEDTECH](Institution) ?
+    - Je cherche spécifiquement des CV présentant des études à [IHEC Tunis](Institution).
+    - Peux-tu me fournir les CV qui incluent des études à [Sup'com](Institution) ?
+    - Des CV incluant des études à [ENIT](Institution) ?
+    - Montre-moi les CV avec des études à [INSAT](Institution), s'il te plaît.
+    - CV [Iset'com](Institution) ?
+    - Cherche CV [isetcom](Institution).
+    - CV [iset](Institution) disponibles ?
+    - Affiche CV [ESSEC Tunis](Institution).
+    - Voir CV [ESSEC](Institution).
+    - Trouve CV [ESSECT](Institution).
+    - Spécifique CV [FSEG](Institution) ?
+    - Fournir CV [fseg](Institution).
+    - CV incluant [Tunis Business School](Institution) ?
+    - Montre CV [TBS](Institution).
+    - Peux-tu me montrer les CV des candidats issus de [Université Paris Dauphine](Institution) ?
+    - Je cherche les CV de personnes diplômées de [ESC Tunis](Institution).
+    - Est-ce que tu as des CV qui mettent en avant les études réalisées à [Ecole Sup de Commerce](Institution) ?
+    - Affiche les CV mentionnant [Ecole Supérieure de Commerce de Tunis](Institution), s'il te plaît.
+    - Je voudrais voir les CV des personnes ayant étudié à [Toulouse Business School](Institution).
+    - Existe-t-il des CV indiquant des études à [ESPAF](Institution) ?
+    - Peux-tu trouver les CV soulignant les diplômes obtenus à [Ecole Nationale d'Ingénieurs de Bizerte](Institution) ?
+    - [ISG Tunis](Institution)
+    - [ESPRIT](Institution)
+    - [ESB](Institution)
+    - [Paris Dauphine](Institution)
+    - [Dauphine](Institution)
+    - [MSB](Institution)
+    - [MEDTECH](Institution)
+    - [IHEC](Institution)
+    - [IHEC Tunis](Institution)
+    - [Sup'com](Institution)
+    - [Supcom](Institution)
+    - [ENIT](Institution)
+    - [INSAT](Institution)
+    - [Iset'com](Institution)
+    - [isetcom](Institution)
+    - [iset](Institution)
+    - [ESSEC Tunis](Institution)
+    - [ESSEC](Institution)
+    - [ESSECT](Institution)
+    - [FSEG](Institution)
+    - [fseg](Institution)
+    - [Tunis Business School](Institution)
+    - [TBS](Institution)
+    - [Université Paris Dauphine](Institution)
+    - [ESC Tunis](Institution)
+    - [Ecole Sup de Commerce](Institution)
+    - [Ecole Supérieure de Commerce de Tunis](Institution)
+    - [Toulouse Business School](Institution)
+    - [ESPAF](Institution)
+    - [Ecole Nationale d'Ingénieurs de Bizerte](Institution)
+
+- intent: search_CV_Diplome_Obtenu
+  examples: |
+    - Peux-tu me montrer les CV des candidats ayant obtenu un [Mastère](Diplome_Obtenu) ?
+    - Je cherche les CV de personnes diplômées en [Ingénieur](Diplome_Obtenu).
+    - Est-ce que tu as des CV correspondant à un diplôme en [Ingénierie](Diplome_Obtenu) ?
+    - Affiche les CV des personnes ayant un [master](Diplome_Obtenu), s'il te plaît.
+    - Je voudrais voir les CV des personnes ayant obtenu une [licence](Diplome_Obtenu).
+    - Existe-t-il des CV indiquant un diplôme de [bachelor](Diplome_Obtenu) ?
+    - Peux-tu trouver les CV soulignant un [doctorat](Diplome_Obtenu) ?
+    - Je cherche spécifiquement des CV présentant un [Mastère](Diplome_Obtenu).
+    - Peux-tu me fournir les CV qui incluent un diplôme de [Ingénieur](Diplome_Obtenu) ?
+    - Des CV incluant un [Ingénierie](Diplome_Obtenu) ?
+    - Montre-moi les CV avec un [master](Diplome_Obtenu), s'il te plaît.
+    - CV [licence](Diplome_Obtenu) ?
+    - Cherche CV [bachelor](Diplome_Obtenu).
+    - CV [doctorat](Diplome_Obtenu) disponibles ?
+    - Affiche CV [Mastère](Diplome_Obtenu).
+    - Voir CV [Ingénieur](Diplome_Obtenu).
+    - Trouve CV [Ingénierie](Diplome_Obtenu).
+    - Spécifique CV [master](Diplome_Obtenu) ?
+    - Fournir CV [licence](Diplome_Obtenu).
+    - CV incluant [bachelor](Diplome_Obtenu) ?
+    - Montre CV [doctorat](Diplome_Obtenu).
+    - [Mastère](Diplome_Obtenu)
+    - [Ingénieur](Diplome_Obtenu)
+    - [Ingénierie](Diplome_Obtenu)
+    - [master](Diplome_Obtenu)
+    - [licence](Diplome_Obtenu)
+    - [bachelor](Diplome_Obtenu)
+    - [doctorat](Diplome_Obtenu)
+
+- intent: out_of_scope
+  examples: |
+    - Je voudrais commander une pizza
+    - Quel temps fait-il aujourd'hui ?
+    - Peux-tu me donner une recette pour un gâteau au chocolat ?
+    - Quelle est la capitale de la France ?
+    - Quel est le dernier film que tu as vu ?
+    - Quelle est la hauteur de la tour Eiffel ?
+    - Peux-tu me raconter une blague ?
+    - Comment est-ce que je me rends à la gare ?
+    - Où puis-je trouver un bon restaurant ?
+    - Quelle est la population de la Chine ?
+    - Quelle est la distance entre la Terre et la Lune ?
+    - Est-ce que tu peux m'aider à faire mes devoirs ?
+    - Quel est ton sport préféré ?
+    - Qui a gagné le match de football hier ?
+    - Quelle est ta couleur préférée ?
+    - Peux-tu me donner un conseil pour bien dormir ?
+    - zfjfzegifzegfuizgfiufz
+    - gkhgkhlhglkhgl
+    - mnbvnbvnmbnm
+
+- intent: nlu_fallback
+  examples: |
+    - fizofzifzef
+    - fozifzifezofz
+    - hezifohezhfhff
+
+- intent: kpi_dashboard
+  examples: |
+    - crée un dashboard dynamique pour chaque institution montrant les KPIs.
+    - Peux-tu préparer et mettre à jour un dashboard pour visualiser les performances globales et spécifiques ?
+    - Je veux un dashboard en temps réel pour chaque institution, affichant les différents KPIs.
+    - Aide-moi à visualiser facilement les performances avec un dashboard dynamique et à jour.
+    - Montre-moi un dashboard avec les KPIs pour suivre les performances des institutions en temps réel.
+    - Peux-tu créer un dashboard dynamique montrant les KPIs des banques et des assurances ?
+    - J'ai besoin d'un dashboard en temps réel pour visualiser les performances des institutions financières.
+    - Aide-moi à mettre à jour un dashboard pour suivre les KPIs des institutions.
+    - Peux-tu préparer un dashboard dynamique pour chaque institution avec les KPIs ?
+    - Je veux un dashboard pour visualiser les performances spécifiques des institutions financières.
+    - Aide-moi à créer un dashboard en temps réel pour suivre les performances globales des banques et des assurances.
+    - Peux-tu mettre à jour un dashboard avec les KPIs pour chaque institution financière ?
+    - J'ai besoin d'un dashboard dynamique pour visualiser les performances des institutions en temps réel.
+    - Montre-moi un dashboard à jour pour suivre les KPIs des institutions financières.
+    - Aide-moi à préparer un dashboard en temps réel avec les KPIs pour chaque institution.
+    - Peux-tu créer un dashboard dynamique pour suivre les performances spécifiques des banques et des assurances ?
+    - Je veux un dashboard pour visualiser les performances globales des institutions financières.
+    - Aide-moi à mettre à jour un dashboard pour suivre les performances spécifiques des institutions.
+    - Peux-tu préparer un dashboard dynamique montrant les KPIs en temps réel pour chaque institution ?
+    - J'ai besoin d'un dashboard pour visualiser les KPIs des institutions financières en temps réel.
+    - Crée un dashboard dynamique à partir de cet excel montrant les KPIs des institutions.
+    - Peux-tu mettre à jour le dashboard avec les données de cette sheet pour suivre les KPIs ?
+    - Aide-moi à préparer un dashboard en utilisant cette base de données pour visualiser les performances.
+    - Je veux un dashboard dynamique à partir de ce dataset pour afficher les KPIs en temps réel.
+    - Peux-tu créer un dashboard en utilisant ce fichier excel pour suivre les performances des institutions ?
+    - Mets à jour le dashboard avec les KPIs à partir de cette sheet.
+    - Aide-moi à visualiser les KPIs en temps réel en utilisant cette base de données.
+    - Prépare un dashboard dynamique avec les données de ce dataset pour suivre les performances.
+    - J'ai besoin d'un dashboard en temps réel utilisant cet excel pour visualiser les KPIs.
+    - Crée un dashboard avec les données de cette sheet pour suivre les performances globales et spécifiques.
+    - Mets à jour le dashboard en utilisant cette base de données pour afficher les KPIs des institutions.
+    - Prépare un dashboard dynamique avec ce dataset pour visualiser les performances en temps réel.
+    - Je veux un dashboard utilisant cet excel pour suivre les KPIs des institutions financières.
+    - Peux-tu préparer un dashboard en utilisant cette sheet pour visualiser les performances ?
+    - Aide-moi à créer un dashboard dynamique avec cette base de données pour suivre les KPIs.
+    - Mets à jour le dashboard avec les données de ce dataset pour afficher les KPIs des institutions en temps réel.
+    - montre KPI
+    - KPIs
+    - dashboard maintenant
+    - voir dashboard
+    - stats vite
+    - KPI rapide
+    - affiche les indicateurs
+    - tableau de bord
+    - performance stats
+    - résultats clés
+    - show KPIs
+    - dashboard quick
+    - need stats
+    - fast KPI update
+    - quick dashboard view
+    - KPI summary
+    - instant KPI report
+    - KPI display now
+    - urgent stats
+    - KPI data
+    - fetch dashboard
+    - quick KPI check
+    - update me on KPIs
+    - dashboard status
+    - give me the numbers
+    - stats now
+    - KPI please
+    - urgent dashboard
+    - rapide tableau
+    - KPI tout de suite
+    - voir les chiffres
+    - actualisation des KPIs
+    - état des KPIs
+    - montre-moi les performances
+    - KPI actuels
+    - point sur les indicateurs
+    - KPI rapide
+    - dashboard vite
+    - montre KPIs
+    - stats maintenant
+    - KPIs
+    - dashboard simple
+    - voir KPI
+    - KPIs direct
+    - dashboard
+    - KPI urgent
+    - tableau KPI
+    - KPI maintenant
+    - affiche stats
+    - stats directes
+    - dash
+
+
+
+
+- intent: benchmark_analysis
+  examples: |
+    - aide-moi à élaborer un benchmark pour les secteurs de la banque et de l'assurance.
+    - Peux-tu me fournir les différents ratios par thématiques pour les secteurs de la banque et de l'assurance ?
+    - Je veux comparer les performances avec celles de l'industrie en utilisant des benchmarks sectoriels.
+    - Aide-moi à identifier les opportunités d'amélioration en comparant les ratios opérationnels, risques, finances, etc.
+    - Je souhaite élaborer un benchmark sectoriel pour analyser les performances des banques et des assurances.
+    - J'ai besoin d'aide pour créer un benchmark pour les secteurs financiers.
+    - Comment puis-je comparer les ratios opérationnels des banques et des assurances ?
+    - Peux-tu me montrer les benchmarks par thématiques pour le secteur bancaire ?
+    - Aide-moi à comparer les performances financières des banques avec celles de l'industrie.
+    - Je veux un benchmark pour évaluer les risques dans le secteur de l'assurance.
+    - Peux-tu m'aider à élaborer un benchmark de performance pour les banques et les assurances ?
+    - J'ai besoin d'un benchmark pour comparer les ratios financiers des institutions financières.
+    - Comment puis-je utiliser des benchmarks pour identifier les opportunités d'amélioration dans le secteur financier ?
+    - Aide-moi à trouver les benchmarks sectoriels pour les ratios opérationnels et de risque.
+    - Peux-tu me fournir un benchmark pour analyser les performances des assurances par thématiques ?
+    - Je veux créer un benchmark pour les performances financières des banques.
+    - Aide-moi à élaborer un benchmark de comparaison pour les ratios de risque dans le secteur financier.
+    - Peux-tu m'aider à comparer les performances des banques et des assurances avec les benchmarks industriels ?
+    - J'ai besoin de benchmarks pour évaluer les opportunités d'amélioration dans le secteur financier.
+    - Comment puis-je élaborer un benchmark sectoriel pour les banques et les assurances ?
+    - Peux-tu me fournir les ratios opérationnels, risques, et finances pour les secteurs de la banque et de l'assurance ?
+    - Aide-moi à créer un benchmark pour évaluer les performances des institutions financières.
+    - Je veux comparer les ratios de performance des banques avec ceux de l'industrie.
+    - Peux-tu préparer un benchmark sectoriel pour analyser les performances des assurances ?
+    - Aide-moi à identifier les opportunités d'amélioration en comparant les ratios financiers et opérationnels.
+    - Peux-tu me montrer les benchmarks pour les performances des banques et des assurances ?
+    - Je souhaite élaborer un benchmark pour comparer les ratios de risque et de finance dans le secteur financier.
+    - Aide-moi à créer un benchmark sectoriel pour les performances des banques et des assurances.
+    - Peux-tu préparer un benchmark pour analyser les ratios opérationnels des institutions financières ?
+    - J'ai besoin d'un benchmark sectoriel pour évaluer les performances des assurances et des banques.
+    - Comment puis-je utiliser les benchmarks pour comparer les performances financières des institutions ?
+    - Peux-tu me fournir un benchmark pour évaluer les opportunités d'amélioration dans le secteur de l'assurance ?
+    - Aide-moi à préparer un benchmark sectoriel pour les performances des banques et des assurances.
+    - Je veux créer un benchmark pour analyser les ratios de risque dans le secteur financier.
+    - Peux-tu préparer un benchmark pour comparer les performances des banques et des assurances avec celles de l'industrie ?
+    - J'ai besoin de benchmarks pour analyser les opportunités d'amélioration dans le secteur financier.
+    - Comment puis-je élaborer un benchmark pour les ratios opérationnels, risques, et finances des institutions financières ?
+    - Peux-tu me fournir les benchmarks pour les performances des banques et des assurances ?
+    - Aide-moi à identifier les opportunités d'amélioration en utilisant des benchmarks sectoriels pour les institutions financières.
+    - Elaboration d’un Benchmark (Banque et Assurance) incluant les différents ratios
+    - benchmark détaillé pour banque
+    - analyse comparative assurance
+    - benchmark opérationnel
+    - comparaison de risques KPI
+    - étude benchmark finance
+    - analyse des KPIs du secteur bancaire
+    - rapport de benchmarking pour assurances
+    - comparatif des indicateurs financiers
+    - KPIs opérationnels en assurance
+    - benchmark des risques dans la banque
+    - aperçu des KPIs financiers
+    - demande de benchmarking complet
+    - revue de performance sectorielle
+    - analyse comparative détaillée des assurances
+    - étude des ratios de performance en banque
+    - quick benchmark
+    - need benchmark fast
+    - urgent benchmark report
+    - quick risk comparison
+    - KPI analysis now
+    - immediate benchmark data
+    - KPI report quick
+    - fast sector review
+    - benchmark ASAP
+    - snapshot of finance KPIs
+    - benchmark rapide
+    - KPIs banque
+    - analyse risques
+    - KPI finance
+    - benchmarking
+    - étude KPIs
+    - comparaison KPI
+    - rapport rapide
+    - benchmark secteur
+    - KPI assurance
+    - comparatif rapide
+    - benchmarks
+    - KPIs rapides
+    - données KPI
+    - étude rapide
+
+
+
+- intent: calculate_ratios
+  examples: |
+    - calcule les ratios nécessaires à partir des données disponibles.
+    - Peux-tu analyser les ratios pour me permettre de comprendre le positionnement par rapport aux normes du secteur ?
+    - J'ai besoin que l'agent virtuel calcule les ratios à partir des données disponibles.
+    - Aide-moi à comprendre le positionnement par rapport aux normes du secteur en analysant les ratios.
+    - Calcule les ratios nécessaires à partir des données que nous avons.
+    - Peux-tu m'analyser les ratios pour comprendre le positionnement par rapport aux standards du secteur ?
+    - J'ai besoin que tu calcules les ratios automatiquement à partir des données disponibles.
+    - Aide-moi à analyser les ratios pour comprendre notre positionnement par rapport aux normes du secteur.
+    - Peux-tu calculer les ratios nécessaires à partir des données que nous avons ?
+    - Analyse les ratios pour que je puisse comprendre notre positionnement par rapport aux standards du secteur.
+    - J'ai besoin d'une analyse automatique des ratios à partir des données disponibles.
+    - Aide-moi à calculer et analyser les ratios pour comprendre notre positionnement sectoriel.
+    - Peux-tu calculer les ratios nécessaires et les analyser par rapport aux normes du secteur ?
+    - J'ai besoin d'une analyse des ratios calculés à partir des données disponibles.
+    - Aide-moi à comprendre notre positionnement en calculant les ratios nécessaires.
+    - Peux-tu calculer et analyser les ratios pour comprendre notre positionnement sectoriel ?
+    - J'ai besoin que tu calcules automatiquement les ratios à partir des données disponibles.
+    - Aide-moi à analyser les ratios pour comprendre notre positionnement par rapport aux normes industrielles.
+    - Peux-tu calculer les ratios nécessaires et les analyser par rapport aux standards du secteur ?
+    - J'ai besoin d'une analyse automatique des ratios pour comprendre notre positionnement.
+    - Aide-moi à comprendre notre positionnement en analysant les ratios calculés à partir des données disponibles.
+    - Peux-tu analyser les ratios pour comprendre notre positionnement par rapport aux normes du secteur ?
+    - J'ai besoin d'une analyse des ratios pour comprendre notre positionnement par rapport aux standards du secteur.
+    - Calcule les ratios nécessaires et analyse-les par rapport aux normes du secteur.
+    - Peux-tu calculer automatiquement les ratios à partir des données disponibles ?
+    - J'ai besoin que l'agent virtuel calcule et analyse les ratios nécessaires.
+    - Aide-moi à calculer les ratios et à les analyser pour comprendre notre positionnement sectoriel.
+    - Peux-tu analyser les ratios pour me permettre de comprendre notre positionnement par rapport aux normes ?
+    - J'ai besoin d'une analyse des ratios pour comprendre notre positionnement par rapport aux normes du secteur.
+    - Calcule et analyse les ratios nécessaires à partir des données disponibles.
+    - Peux-tu calculer et analyser les ratios pour comprendre notre positionnement par rapport aux standards ?
+    - J'ai besoin d'une analyse automatique des ratios pour comprendre notre positionnement sectoriel.
+    - Aide-moi à comprendre notre positionnement en calculant les ratios à partir des données disponibles.
+    - Peux-tu calculer les ratios nécessaires et les analyser par rapport aux normes industrielles ?
+    - J'ai besoin d'une analyse des ratios pour comprendre notre positionnement par rapport aux normes du secteur.
+    - Calcule les ratios nécessaires et analyse-les à partir des données disponibles.
+    - Peux-tu calculer et analyser les ratios pour comprendre notre positionnement par rapport aux normes du secteur ?
+    - J'ai besoin d'une analyse des ratios pour comprendre notre positionnement par rapport aux standards industriels.
+    - je veux ratio
+    - ratio
+    - calcul ratio stp
+    - calcule moi un ratio
+    - positionnement à partir de ratio
+    - calcule ratio
+    - ratio KPI
+    - ratio vite
+    - ratio simple
+    - besoin ratio
+    - voir ratios
+    - ratio direct
+    - ratio maintenant
+    - ratio opérationnel
+    - KPI ratio
+    - calcul rapide
+    - ratio financier
+    - ratio risque
+

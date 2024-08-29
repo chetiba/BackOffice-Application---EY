@@ -1,0 +1,136 @@
+<div class="d-flex align-items-center auth px-0">
+  <div class="row w-100 mx-0">
+    <div class="col-lg-6 mx-auto">
+      <div class="auth-form-dark text-left py-5 px-4 px-sm-5">
+        <div class="brand-logo text-center mb-4">
+          <img src="assets/images/a.png" alt="logo">
+        </div>
+        <h4 class="text-center">Créer un compte</h4>
+        <h6 class="font-weight-light text-center mb-4">L'inscription est simple et rapide.</h6>
+
+        <form [formGroup]="addCollaborateurForm" (ngSubmit)="onSubmit()" class="pt-3">
+
+          <!-- Section Informations Personnelles -->
+          <h5 class="text-muted">Informations Personnelles</h5>
+          <div class="form-group">
+            <label for="prenom">Prénom</label>
+            <input type="text" class="form-control form-control-lg" id="prenom" formControlName="prenom" placeholder="Prénom" required />
+            <div *ngIf="addCollaborateurForm.get('prenom').touched && addCollaborateurForm.get('prenom').invalid" class="text-danger">
+              Le prénom est obligatoire.
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="nom">Nom</label>
+            <input type="text" class="form-control form-control-lg" id="nom" formControlName="nom" placeholder="Nom" required />
+            <div *ngIf="addCollaborateurForm.get('nom').touched && addCollaborateurForm.get('nom').invalid" class="text-danger">
+              Le nom est obligatoire.
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control form-control-lg" id="email" formControlName="email" placeholder="Email" required />
+            <div *ngIf="addCollaborateurForm.get('email').touched && addCollaborateurForm.get('email').invalid" class="text-danger">
+              Entrez une adresse email valide.
+            </div>
+          </div>
+
+          <!-- Section Professionnelle -->
+          <h5 class="text-muted">Informations Professionnelles</h5>
+          <div class="form-group">
+            <label for="poste">Poste</label>
+            <select class="form-control form-control-lg" id="poste" formControlName="poste" required>
+              <option value="" disabled>Sélectionner le poste</option>
+              <option value="Junior Consultant">Junior Consultant</option>
+              <option value="Senior Consultant">Senior Consultant</option>
+              <option value="Assistant Manager">Assistant Manager</option>
+              <option value="Manager">Manager</option>
+              <option value="Senior Manager">Senior Manager</option>
+              <option value="Partner">Partner</option>
+            </select>
+            <div *ngIf="addCollaborateurForm.get('poste').touched && addCollaborateurForm.get('poste').invalid" class="text-danger">
+              Le poste est obligatoire.
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="role">Rôle</label>
+            <input type="text" class="form-control form-control-lg" id="role" formControlName="role" placeholder="Rôle" required />
+            <div *ngIf="addCollaborateurForm.get('role').touched && addCollaborateurForm.get('role').invalid" class="text-danger">
+              Le rôle est obligatoire.
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="departement">Département</label>
+            <input type="text" class="form-control form-control-lg" id="departement" formControlName="departement" value="SSL FS TRANSFORMATION" readonly />
+            <div *ngIf="addCollaborateurForm.get('departement').touched && addCollaborateurForm.get('departement').invalid" class="text-danger">
+              Le département est obligatoire.
+            </div>
+          </div>
+
+          <!-- Section Compétences et Éducation -->
+          <h5 class="text-muted">Compétences et Éducation</h5>
+          <div class="form-group">
+            <label for="competences">Compétences</label>
+            <input type="text" class="form-control form-control-lg" id="competences" formControlName="competences" placeholder="Compétences" required />
+            <div *ngIf="addCollaborateurForm.get('competences').touched && addCollaborateurForm.get('competences').invalid" class="text-danger">
+              Les compétences sont obligatoires.
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="diplome_obtenu">Diplôme obtenu</label>
+            <input type="text" class="form-control form-control-lg" id="diplome_obtenu" formControlName="diplome_obtenu" placeholder="Diplôme obtenu" required />
+            <div *ngIf="addCollaborateurForm.get('diplome_obtenu').touched && addCollaborateurForm.get('diplome_obtenu').invalid" class="text-danger">
+              Le diplôme est obligatoire.
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="institution">Institution</label>
+            <input type="text" class="form-control form-control-lg" id="institution" formControlName="institution" placeholder="Institution" required />
+            <div *ngIf="addCollaborateurForm.get('institution').touched && addCollaborateurForm.get('institution').invalid" class="text-danger">
+              L'institution est obligatoire.
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="date">Date</label>
+            <input type="text" class="form-control form-control-lg" id="date" formControlName="date" placeholder="Date" required />
+            <div *ngIf="addCollaborateurForm.get('date').touched && addCollaborateurForm.get('date').invalid" class="text-danger">
+              La date est obligatoire.
+            </div>
+          </div>
+
+          <!-- Section Fichiers -->
+          <h5 class="text-muted">Fichiers</h5>
+          <div class="form-group">
+            <label for="image">Image</label>
+            <input type="file" class="form-control form-control-lg" id="image" (change)="onFileSelect($event, 'image')" required />
+            <div *ngIf="addCollaborateurForm.get('image').touched && addCollaborateurForm.get('image').invalid" class="text-danger">
+              L'image est obligatoire.
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="cv">CV</label>
+            <input type="file" class="form-control form-control-lg" id="cv" (change)="onFileSelect($event, 'cv')" required />
+            <div *ngIf="addCollaborateurForm.get('cv').touched && addCollaborateurForm.get('cv').invalid" class="text-danger">
+              Le CV est obligatoire.
+            </div>
+          </div>
+
+          <div class="mt-3">
+            <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">S'INSCRIRE</button>
+          </div>
+
+          <div class="text-center mt-4 font-weight-light">
+            Vous avez déjà un compte? <a routerLink="/user-pages/login" class="text-primary">Se connecter</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

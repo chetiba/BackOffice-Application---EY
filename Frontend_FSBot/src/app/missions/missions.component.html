@@ -1,0 +1,255 @@
+<div class="container-fluid mt-4" >
+  <!-- Formulaire de création et d'assignation de mission -->
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Créer et Assigner une Mission</h4>
+          <form  (ngSubmit)="onSubmit(missionForm)" #missionForm="ngForm" class="form-sample">
+            <p class="card-description">Informations sur la Mission</p>
+
+  <div class="row">
+              <!-- Nom du Projet -->
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Nom du Projet</label>
+                  <input type="text" class="form-control" name="nom_projet" ngModel required #projectName="ngModel">
+                  <div *ngIf="projectName.invalid && projectName.touched" class="text-danger">
+                    Le nom du projet est obligatoire.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Client -->
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Client</label>
+                  <select class="form-control" name="client_id" [(ngModel)]="selectedClientId" required #client="ngModel">
+                    <option value="" disabled selected>Choisir un client</option>
+                    <option *ngFor="let client of clients" [value]="client.id">{{ client.nom }}</option>
+                  </select>
+                  <div *ngIf="client.invalid && client.touched" class="text-danger">
+                    Le client est obligatoire.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <!-- Date de Début -->
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Date de Début</label>
+                  <input type="date" class="form-control" name="date_debut" ngModel required #dateDebut="ngModel">
+                  <div *ngIf="dateDebut.invalid && dateDebut.touched" class="text-danger">
+                    La date de début est obligatoire.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Date de Fin -->
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Date de Fin</label>
+                  <input type="date" class="form-control" name="date_fin" ngModel required #dateFin="ngModel">
+                  <div *ngIf="dateFin.invalid && dateFin.touched" class="text-danger">
+                    La date de fin est obligatoire.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <!-- Manager Responsable -->
+<!-- Manager Responsable -->
+<div class="col-md-6">
+  <div class="form-group">
+    <label>Manager Responsable</label>
+    <input type="text" class="form-control" [value]="managerName" readonly>
+  </div>
+</div>
+
+              <!-- Marge pour le Manager -->
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Chargeable</label>
+                  <input type="number" class="form-control" name="marge_mission_manager"
+                         [(ngModel)]="margeMissionManager"
+                         (blur)="adjustMargeValue()"
+                         min="1" max="40" required #margeManager="ngModel">
+                  <div *ngIf="margeManager.invalid && margeManager.touched" class="text-danger">
+                    Chargeable doit être entre 1 et 40.
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <!-- Partner -->
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Partner</label>
+                  <select class="form-control" name="partner_id" [(ngModel)]="selectedPartnerId" required #partner="ngModel">
+                    <option value="" disabled selected>Choisir un partenaire</option>
+                    <option *ngFor="let partner of partners" [value]="partner.id">{{ partner.prenom }} {{ partner.nom }}</option>
+                  </select>
+                  <div *ngIf="partner.invalid && partner.touched" class="text-danger">
+                    Le partenaire est obligatoire.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Delivery Team (Non requis) -->
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Delivery Team</label>
+<select class="form-control" name="collaborateur_id" [(ngModel)]="selectedCollaborateurId" (ngModelChange)="onDeliveryTeamSelect($event)">
+  <option value="" disabled selected>Choisir un collaborateur</option>
+  <option *ngFor="let collaborateur of collaborateurs" [value]="collaborateur.id">
+    {{ collaborateur.prenom }} {{ collaborateur.nom }} - {{ collaborateur.hoursLeft }}
+  </option>
+</select>
+
+                </div>
+              </div>
+            </div>
+
+            <!-- Liste des membres de l'équipe -->
+            <div class="row" *ngIf="deliveryTeamIds.length > 0">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label>Membres de l'équipe sélectionnés</label>
+                  <div *ngFor="let member of deliveryTeamIds" class="form-group row">
+                    <label class="col-sm-3 col-form-label">{{ getCollaborateurName(member) }}</label>
+                    <div class="col-sm-6">
+                      <input type="number" class="form-control" [(ngModel)]="marges[member]" name="marge{{member}}" min="1" max="40" required #margeInput="ngModel">
+                      <div *ngIf="margeInput.invalid && margeInput.touched" class="text-danger">
+                         Chargeable doit être entre 1 et 40.
+                      </div>
+                    </div>
+                    <div class="col-sm-3 text-right">
+                      <button type="button" class="btn btn-danger btn-sm" (click)="removeDeliveryTeamMember(member)">
+                        Retirer
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bouton Soumettre -->
+            <div class="text-right">
+              <button type="submit" class="btn btn-primary" [disabled]="missionForm.invalid">Soumettre</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section de filtrage des missions -->
+<div class="row mt-5">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Filtrer les Missions</h4>
+
+        <div class="row">
+          <!-- Sélecteur pour Collaborateur -->
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Filtrer par Collaborateur</label>
+              <select class="form-control" [(ngModel)]="selectedCollaborateurId" (change)="onCollaborateurSelect($event)">
+                <option value="" disabled selected>Choisir un collaborateur</option>
+                <option *ngFor="let collaborateur of collaborateurs" [value]="collaborateur.id">
+                  {{ collaborateur.prenom }} {{ collaborateur.nom }}
+                </option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Sélecteur pour Client -->
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Filtrer par Client</label>
+              <select class="form-control" [(ngModel)]="selectedClientId" (change)="onClientSelect($event)">
+                <option value="" disabled selected>Choisir un client</option>
+                <option *ngFor="let client of clients" [value]="client.id">
+                  {{ client.nom }}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tableau pour les missions filtrées par collaborateur -->
+        <div *ngIf="missionsByCollaborateur.length > 0" class="mt-4">
+          <h5 class="card-title">Missions pour {{ selectedCollaborateur.prenom }} {{ selectedCollaborateur.nom }}</h5>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Collaborateur</th>
+                  <th>Nom du Projet</th>
+                  <th>Client</th>
+                  <th>Date de Début</th>
+                  <th>Date de Fin</th>
+                  <th>Manager</th>
+                  <th>Chargeable Mission (heures)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let mission of missionsByCollaborateur">
+                  <td>{{ mission.collaborateur.prenom }} {{ mission.collaborateur.nom }}</td>
+                  <td>{{ mission.nom_projet }}</td>
+                  <td>{{ mission.client }}</td>
+                  <td>{{ mission.date_debut }}</td>
+                  <td>{{ mission.date_fin }}</td>
+                  <td>{{ mission.manager_responsable.prenom }} {{ mission.manager_responsable.nom }}</td>
+<td>
+  <div class="d-flex align-items-center">
+    <input type="number" class="form-control" [(ngModel)]="mission.marge_mission" min="1" max="40" style="width: auto; flex: 1;">
+<i class="mdi mdi-tooltip-edit text-primary btn p-0 ml-4"
+   (click)="updateMissionMargin(mission, missionForm)"
+   style="cursor: pointer; font-size: 1.25rem;">
+</i>
+  </div>
+</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Tableau pour les missions filtrées par client -->
+        <div *ngIf="missionsByClient.length > 0" class="mt-4">
+          <h5 class="card-title">Missions pour {{ selectedClient?.nom }}</h5>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Nom du Projet</th>
+                  <th>Collaborateur</th>
+                  <th>Date de Début</th>
+                  <th>Date de Fin</th>
+                  <th>Manager</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let mission of missionsByClient">
+                  <td>{{ mission.nom_projet }}</td>
+                  <td>{{ mission.collaborateur.prenom }} {{ mission.collaborateur.nom }}</td>
+                  <td>{{ mission.date_debut }}</td>
+                  <td>{{ mission.date_fin }}</td>
+                  <td>{{ mission.manager_responsable.prenom }} {{ mission.manager_responsable.nom }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+</div>

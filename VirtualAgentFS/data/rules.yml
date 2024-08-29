@@ -1,0 +1,57 @@
+version: "3.1"
+rules:
+- rule: Greet the user
+  steps:
+    - intent: greet
+    - action: utter_greet
+
+- rule: Say goodbye
+  steps:
+    - intent: goodbye
+    - action: utter_goodbye
+
+- rule: Affirm response
+  steps:
+    - intent: affirm
+    - action: utter_affirm
+
+- rule: Deny response
+  steps:
+    - intent: deny
+    - action: utter_deny
+
+- rule: Respond to negative mood
+  steps:
+    - intent: mood_unhappy
+    - action: utter_mood_unhappy
+    - action: utter_did_that_help
+
+- rule: Handle bot challenge
+  steps:
+    - intent: bot_challenge
+    - action: utter_bot_challenge
+
+- rule: Search CV by Name
+  steps:
+    - intent: search_CV_Name
+    - action: action_search_cv_by_name
+
+- rule: Search CV by Competences
+  steps:
+    - intent: search_CV_Competences
+    - action: action_search_cv_by_name
+
+- rule: Respond to benchmark analysis request
+  steps:
+    - intent: benchmark_analysis
+    - action: utter_benchmark_analysis
+
+- rule: Respond to calculate ratios request
+  steps:
+    - intent: calculate_ratios
+    - action: utter_calculate_ratios
+
+- rule: Respond to KPI dashboard request
+  steps:
+    - intent: kpi_dashboard
+    - action: utter_kpi_dashboard

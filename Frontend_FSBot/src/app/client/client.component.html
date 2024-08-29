@@ -1,0 +1,47 @@
+<div class="container-fluid mt-4">
+  <!-- Section Ajouter un Client -->
+  <div class="row" *ngIf="canAccessForms()">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Ajouter un Client</h4>
+          <form (ngSubmit)="addClient()" #clientForm="ngForm" class="form-sample">
+            <div class="form-group">
+              <label>Nom du Client</label>
+              <input type="text" class="form-control" [(ngModel)]="clientName" name="nom_client" required #clientNameModel="ngModel">
+              <div *ngIf="clientNameModel.invalid && clientNameModel.touched" class="text-danger">
+                Le nom du client est obligatoire.
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="clientForm.invalid">Ajouter</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Champ de recherche avancée -->
+  <div class="row mt-4">
+    <div class="col-12">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Rechercher un client..." [(ngModel)]="searchTerm" (input)="filterClients()">
+      </div>
+    </div>
+  </div>
+
+  <!-- Affichage des clients filtrés -->
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Clients</h4>
+          <div class="d-flex flex-wrap">
+            <div *ngFor="let client of filteredClients" class="p-2 border m-2">
+              {{ client.nom }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Chatbot Rasa Interface</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        #chat-container {
+            width: 400px;
+            height: 600px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+        }
+        #chat-box {
+            flex-grow: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .message {
+            padding: 10px 20px;
+            border-radius: 18px;
+            color: #fff;
+            max-width: 80%;
+        }
+        .user-message {
+            background-color: #007BFF;
+            align-self: flex-end;
+        }
+        .bot-message {
+            background-color: #2b5278;
+            align-self: flex-start;
+        }
+        #user-input {
+            border: none;
+            padding: 15px;
+            font-size: 16px;
+            border-top: 1px solid #ccc;
+            outline: none;
+            width: calc(100% - 88px);
+        }
+        button {
+            width: 80px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 15px;
+            cursor: pointer;
+            outline: none;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div id="chat-container">
+        <div id="chat-box"></div>
+        <div style="display: flex;">
+            <input type="text" id="user-input" placeholder="Tapez votre message ici..." autofocus>
+            <button onclick="sendMessage()">Envoyer</button>
+        </div>
+    </div>
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+    <script>
+        const socket = io('http://localhost:1233');
+
+        socket.on('connect', () => {
+            console.log('Connected to Rasa server.');
+            socket.emit('session_request', {}, (data) => {
+                const session_id = data ? data.session_id : undefined;
+                console.log('Session ID:', session_id);
+                socket.session_id = session_id;
+            });
+        });
+
+        socket.on('session_confirm', (session_id) => {
+            console.log('Session confirmed:', session_id);
+            socket.session_id = session_id;
+        });
+
+        socket.on('bot_uttered', (message) => {
+            console.log('Received message from bot:', message);
+            if (message.text) {
+                appendMessage(message.text, 'bot-message');
+            } else {
+                console.log("Bot response did not contain text:", message);
+            }
+        });
+
+        function sendMessage() {
+            var input = document.getElementById('user-input');
+            var message = input.value;
+            if (message && socket.session_id) {
+                console.log("Sending message:", message);
+                appendMessage(message, 'user-message');
+                socket.emit('user_uttered', { message: message, session_id: socket.session_id });
+                input.value = '';
+            }
+        }
+
+        function appendMessage(message, className) {
+            const chatBox = document.getElementById('chat-box');
+            const msgDiv = document.createElement('div');
+            msgDiv.textContent = message;
+            msgDiv.className = `message ${className}`;
+            chatBox.appendChild(msgDiv);
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        document.getElementById('user-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+    </script>
+</body>
+</html>

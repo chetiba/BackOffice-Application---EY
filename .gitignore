@@ -1,0 +1,31 @@
+# Ignorer les fichiers et dossiers générés pour .NET
+**/bin/
+**/obj/
+**/.vs/
+
+
+# Ignorer les fichiers et dossiers générés pour Django
+**/*.pyc
+**/__pycache__/
+**/db.sqlite3
+**/.idea/
+# Ignorer l'environnement virtuel Django
+**/Backend_FSbot/.venv/
+Django/Backend_FSBot/cv/
+Django/Backend_FSBot/images/
+
+
+# Ignorer les fichiers et dossiers générés pour Angular (dans Frontend_FSBot)
+**/Frontend_FSBot/node_modules/
+**/Frontend_FSBot/dist/
+**/Frontend_FSBot/.idea/
+
+# Ignorer les fichiers et dossiers générés pour Rasa (dans virtualAgentfs)
+**/.rasa/
+**/VirtualAgent_PFE_FS_EY/
+**/VirtualAgentFS/.vs/
+**/VirtualAgentFS/venv/
+**/VirtualAgentFS/keys/
+**/VirtualAgentFS/models/
+# Temporarily allow tracking of the file
+!largefile.psd

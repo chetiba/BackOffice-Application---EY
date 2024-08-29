@@ -1,0 +1,89 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - search_CV_Name
+  - search_CV_Competences
+  - search_CV_Institution
+  - search_CV_Diplome_Obtenu
+  - benchmark_analysis
+  - calculate_ratios
+  - kpi_dashboard
+
+entities:
+  - Nom
+  - competences
+  - Institution
+  - Diplome_Obtenu
+  - Banque
+
+slots:
+  Nom:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: Nom
+  competences:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: competences
+  Institution:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: Institution
+  Diplome_Obtenu:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: Diplome_Obtenu
+
+responses:
+  utter_greet:
+    - text: "Bonjour ! Comment puis-je vous aider aujourd'hui ?"
+  utter_goodbye:
+    - text: "Au revoir ! Passez une bonne journée !"
+  utter_affirm:
+    - text: "Super !"
+  utter_deny:
+    - text: "D'accord, je comprends."
+  utter_mood_great:
+    - text: "C'est fantastique de l'entendre !"
+  utter_mood_unhappy:
+    - text: "Je suis désolé d'entendre cela. Y a-t-il quelque chose que je puisse faire pour aider ?"
+  utter_did_that_help:
+    - text: "Est-ce que cela vous aide ?"
+  utter_bot_challenge:
+    - text: "Je suis un agent virtuel intelligent développé spécifiquement pour le département FS Transformation chez EY."
+  utter_ask_for_name:
+    - text: "Quel est le nom de la personne dont vous cherchez le CV ?"
+  utter_ask_for_competences:
+    - text: "Quelles compétences recherchez-vous ?"
+  utter_ask_for_institution:
+    - text: "Quelle institution cherchez-vous ?"
+  utter_ask_for_diplome:
+    - text: "Quel diplôme recherchez-vous ?"
+  utter_benchmark_analysis:
+    - text: "Je vais vous aider à élaborer un benchmark pour les secteurs de la banque et de l'assurance."
+  utter_calculate_ratios:
+    - text: "Je vais calculer les ratios nécessaires à partir des données disponibles."
+  utter_kpi_dashboard:
+    - text: "Je vais préparer et mettre à jour un dashboard dynamique pour chaque institution, montrant les différents KPIs."
+
+actions:
+  - action_search_cv_by_name
+  - action_search_cv_by_institution
+  - action_search_cv_by_diplome
+  - action_fetch_from_database
+
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

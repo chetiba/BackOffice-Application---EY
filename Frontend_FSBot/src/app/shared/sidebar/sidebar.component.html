@@ -1,0 +1,100 @@
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+  <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
+    <a class="sidebar-brand brand-logo" href="index.html"><img src="assets/images/a.png" alt="logo" /></a>
+    <a class="sidebar-brand brand-logo-mini" href="index.html"><img src="assets/images/logo-mini.svg" alt="logo" /></a>
+  </div>
+  <ul class="nav">
+    <li class="nav-item profile">
+      <div class="profile-desc">
+        <div class="profile-pic">
+          <div class="count-indicator">
+            <img class="img-xs rounded-circle" [src]="profileImageUrl" alt="profile image">
+            <span class="count bg-success"></span>
+          </div>
+          <div class="profile-name">
+            <h5 class="mb-0 font-weight-normal" translate>{{username}}</h5>
+            <span translate>{{poste}}</span>
+          </div>
+        </div>
+      </div>
+    </li>
+    <li class="nav-item nav-category">
+      <span class="nav-link" translate>Navigation</span>
+    </li>
+
+    <!-- Accueil -->
+    <li class="nav-item menu-items">
+      <a class="nav-link" routerLink="/dashboard" routerLinkActive="active">
+        <span class="menu-icon">
+          <i class="mdi mdi-speedometer"></i>
+        </span>
+        <span class="menu-title" translate>Accueil</span>
+      </a>
+    </li>
+
+    <!-- Clients -->
+    <li class="nav-item menu-items">
+      <a class="nav-link" routerLink="/clients" routerLinkActive="active">
+        <span class="menu-icon">
+          <i class="mdi mdi-account-plus"></i>
+        </span>
+        <span class="menu-title" translate>Clients</span>
+      </a>
+    </li>
+
+    <!-- Dashboard Bancaire -->
+    <li class="nav-item menu-items">
+      <a class="nav-link" routerLink="/positionnement" routerLinkActive="active">
+        <span class="menu-icon">
+          <i class="mdi mdi-view-dashboard"></i>
+        </span>
+        <span class="menu-title" translate>Dashboard Bancaire</span>
+      </a>
+    </li>
+        <!-- Dashboard Bancaire -->
+    <li class="nav-item menu-items">
+      <a class="nav-link" routerLink="/equipe" routerLinkActive="active">
+        <span class="menu-icon">
+          <i class="mdi mdi-view-dashboard"></i>
+        </span>
+        <span class="menu-title" translate>Dashboard Equipe</span>
+      </a>
+    </li>
+
+
+    <!-- Missions -->
+    <li class="nav-item menu-items">
+      <a class="nav-link" routerLink="/missions" routerLinkActive="active">
+        <span class="menu-icon">
+          <i class="mdi mdi mdi-home-modern"></i>
+        </span>
+        <span class="menu-title" translate>Missions</span>
+      </a>
+    </li>
+        <!-- Missions -->
+    <li class="nav-item menu-items">
+      <a class="nav-link" routerLink="/stagiaires" routerLinkActive="active">
+        <span class="menu-icon">
+          <i class="mdi mdi mdi-home-modern"></i>
+        </span>
+        <span class="menu-title" translate>Stagiaires</span>
+      </a>
+    </li>
+
+
+    <!-- Afficher uniquement pour les autres postes -->
+    <ng-container *ngIf="hasAccessToAll()">
+      <li class="nav-item menu-items">
+        <a class="nav-link" routerLink="/adduser" routerLinkActive="active">
+          <span class="menu-icon">
+            <i class="mdi mdi-account-plus"></i>
+          </span>
+          <span class="menu-title" translate>Activer inscriptions</span>
+        </a>
+      </li>
+
+
+    </ng-container>
+
+  </ul>
+</nav>

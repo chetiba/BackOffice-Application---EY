@@ -1,0 +1,6 @@
+@ClaimManagementFS_HostAddress = http://localhost:5034
+
+GET {{ClaimManagementFS_HostAddress}}/net/
+Accept: application/json
+
+###

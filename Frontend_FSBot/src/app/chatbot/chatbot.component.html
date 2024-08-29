@@ -1,0 +1,28 @@
+<div class="chat-container">
+  <div class="chat-header">Chat avec FSBOT</div>
+  <ul class="chat-list">
+    <li *ngFor="let message of messages" [ngClass]="{'user-message': message.sender === 'user', 'bot-message': message.sender === 'bot'}">
+      <!-- Check if the message contains a URL -->
+      <ng-container *ngIf="message.text.includes('http://localhost:8000/media/'); else normalText">
+        <span [innerHTML]="formatMessage(message.text)"></span>
+      </ng-container>
+      <ng-template #normalText>
+        <span>{{ message.text }}</span>
+      </ng-template>
+    </li>
+  </ul>
+  <div class="message-input-container">
+    <div class="input-group">
+      <!-- Icon for file upload -->
+      <div class="file-upload-container">
+        <!-- Hidden file input -->
+        <input type="file" id="fileInput" (change)="onFileSelected($event)">
+        <label for="fileInput">
+          <i class="fas fa-paperclip"></i>
+        </label>
+      </div>
+      <input type="text" [(ngModel)]="userMessage" placeholder="Tapez votre message ici..." (keydown.enter)="sendMessage()">
+      <button (click)="sendMessage()">Envoyer</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+select:invalid {
+  color: gray;
+}
+option {
+  color: black;
+}
+.table-responsive {
+  overflow-x: auto;  /* Assure que le contenu est défilable si nécessaire */
+}
+
+.table {
+  width: 100%;  /* S'assure que le tableau s'étend pour remplir l'espace */
+  table-layout: fixed;  /* Utilise un layout fixe pour des largeurs de colonnes uniformes */
+}
+
+.table th, .table td {
+  word-wrap: break-word;  /* Empêche les mots longs de déborder */
+  vertical-align: top;  /* Aline le contenu en haut de la cellule */
+}
+
+/* Définir des largeurs spécifiques pour les colonnes, si nécessaire */
+.table th:nth-child(1), .table td:nth-child(1) { width: 15%; }
+.table th:nth-child(2), .table td:nth-child(2) { width: 20%; }
+.table th:nth-child(3), .table td:nth-child(3) { width: 15%; }
+.table th:nth-child(4), .table td:nth-child(4) { width: 15%; }
+.table th:nth-child(5), .table td:nth-child(5) { width: 15%; }
+.table th:nth-child(6), .table td:nth-child(6) { width: 10%; }
+.table th:nth-child(7), .table td:nth-child(7) { width: 10%; }

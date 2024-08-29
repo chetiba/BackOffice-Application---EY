@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat avec Rasa - Ernst & Young</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #4a4a4a;
+        }
+        #chatContainer {
+            width: 400px;
+            height: 600px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            border: 1px solid #ddd;
+        }
+        #chatHeader {
+            background-color: #FFE600; /* EY Yellow */
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+            color: #000;
+            font-size: 18px;
+        }
+        #chatList {
+            flex-grow: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            background: #f4f4f9;
+        }
+        .chat-message {
+            padding: 10px 15px;
+            border-radius: 18px;
+            color: #fff;
+            max-width: 80%;
+            word-wrap: break-word;
+        }
+        .user-message {
+            background-color: #FFE600; /* EY Yellow */
+            align-self: flex-end;
+            color: #000;
+        }
+        .bot-message {
+            background-color: #000; /* EY Black */
+            align-self: flex-start;
+        }
+        .bot-message a {
+            color: #FFE600;
+            text-decoration: underline;
+        }
+        #messageInputContainer {
+            display: flex;
+            border-top: 1px solid #ddd;
+        }
+        #messageInput {
+            flex-grow: 1;
+            padding: 12px 20px;
+            border: none;
+            outline: none;
+        }
+        #sendButton {
+            background-color: #FFE600; /* EY Yellow */
+            color: #000;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+            padding: 12px 20px;
+        }
+        #sendButton:hover {
+            background-color: #FFD700; /* Slightly darker EY Yellow for hover effect */
+        }
+        .download-icon {
+            width: 32px;
+            height: 32px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="chatContainer">
+        <div id="chatHeader">FS BOT</div>
+        <ul id="chatList"></ul>
+        <div id="messageInputContainer">
+            <input type="text" id="messageInput" placeholder="Tapez votre message ici..." onkeydown="handleKeyDown(event)">
+            <button id="sendButton" onclick="sendMessage()">Envoyer</button>
+        </div>
+    </div>
+
+<script>
+function sendMessage() {
+    var messageInput = document.getElementById("messageInput");
+    var userMessage = messageInput.value.trim();
+
+    if (userMessage) {
+        displayMessage(userMessage, 'user');
+        messageInput.value = ""; // Clear input after sending
+        fetch('/api/chat_with_rasa/', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({message: userMessage, sender: "default_user"})
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log("Received from server:", JSON.stringify(data));
+            handleServerResponse(data); // Handle array of messages from server
+        })
+        .catch(error => {
+            displayMessage("Une erreur s'est produite lors de la communication avec le serveur.", 'bot');
+            console.error('Error:', error);
+        });
+    } else {
+        console.error("Empty message cannot be sent");
+    }
+}
+
+function handleServerResponse(data) {
+    data.forEach(message => {
+        if (message.custom && message.custom.url) {
+            displayMessage("Cliquez pour télécharger le CV:", 'bot');
+            displayDownloadButton(message.custom.url);
+        } else {
+            displayMessage(message.text, 'bot');
+        }
+    });
+}
+
+function displayMessage(message, sender) {
+    var chatList = document.getElementById("chatList");
+    var newItem = document.createElement("li");
+    newItem.className = `chat-message ${sender}-message`;
+    newItem.textContent = message;
+    chatList.appendChild(newItem);
+    chatList.scrollTop = chatList.scrollHeight; // Ensure the latest message is visible
+}
+
+function displayDownloadButton(url) {
+    var chatList = document.getElementById("chatList");
+    var buttonItem = document.createElement("li");
+    buttonItem.className = 'chat-message bot-message';
+
+    buttonItem.innerHTML = `<button onclick="window.open('${url}', '_blank')">Télécharger le CV</button>`;
+    chatList.appendChild(buttonItem);
+    chatList.scrollTop = chatList.scrollHeight; // Scroll to the new message
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,7 @@
+rasa==3.6.20
+jsonpickle
+sqlalchemy<2.0
+numpy
+scipy
+scikit-learn
+matplotlib
